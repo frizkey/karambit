@@ -4,6 +4,7 @@ import (
 	"github.com/rs/zerolog"
 	zlog "github.com/rs/zerolog/log"
 	"os"
+	"runtime/debug"
 )
 
 func init() {
@@ -83,4 +84,10 @@ func Panic(msg string) {
 // Panicf is
 func Panicf(msg string, data ...interface{}) {
 	zlog.Panic().Stack().Msgf(msg, data...)
+}
+
+func FRecover() {
+	if r := recover(); r != nil {
+		Errorf("Recovered in f %v with stack %s", r, string(debug.Stack()))
+	}
 }
