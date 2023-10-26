@@ -1,4 +1,4 @@
-package util
+package futil
 
 func CoallesceString(s ...string) string {
 	for _, v := range s {
