@@ -7,7 +7,7 @@ import (
 )
 
 func init() {
-	zlog.Logger = zlog.Output(zerolog.ConsoleWriter{Out: os.Stderr})
+	zlog.Logger = zlog.Output(os.Stdout)
 	zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
 }
 
